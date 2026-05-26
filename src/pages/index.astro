@@ -52,6 +52,67 @@ const timeline = [
       "Built an AI-assisted security platform with backend orchestration, exploit-validation workflows, structured LLM outputs, monitoring, and audit-report generation."
   }
 ];
+
+const productStrategyArchive = [
+  {
+    period: "",
+    label: "FEATRme - Associate Product Manager",
+    summary:
+      "Worked on product discovery, AI-LegalTech feature planning, customer interviews, prototyping, GDPR considerations, and funding-pitch preparation."
+  },
+  {
+    period: "",
+    label: "SeniorConnect - Founder's Associate / GTM Strategy",
+    summary:
+      "Conducted B2B market research across SaaS, IT, and industrial sectors, supporting outreach, vertical analysis, and GTM strategy."
+  },
+  {
+    period: "",
+    label: "WearCompare - Co-founder / Product",
+    summary:
+      "Built and validated an AI-powered clothing resale/reuse concept in collaboration with Circular Republic, conducting 50+ qualitative interviews and launch strategy work."
+  },
+  {
+    period: "",
+    label: "PushQuantum - Corporate Sponsorship Coordinator",
+    summary:
+      "Managed sponsorship and partnership development, including work connected to a BMBF-funded quantum outreach initiative."
+  }
+];
+
+const leadershipArchive = [
+  {
+    period: "",
+    label: "IIT Madras Leadership & Innovation Roles",
+    summary:
+      "Held student leadership roles across academic affairs, cultural affairs, student innovation, entrepreneurship, department representation, and campus media."
+  },
+  {
+    period: "",
+    label: "Academic Affairs · CFI · E-Cell · Department Council · Cultural Affairs · Article 19",
+    summary:
+      "Academic Affairs Executive Committee, Centre for Innovation Coordinator, E-Cell Associate Manager, Department Council Member, Cultural Affairs Executive Council, and campus media."
+  },
+  {
+    period: "",
+    label: "UN / Public Health Volunteering",
+    summary:
+      "Supported BRUNCH and WASH outreach initiatives targeting child nutrition and public-health awareness, contributing to digital outreach and campaign growth."
+  }
+];
+
+const educationTimeline = [
+  {
+    period: "2022-2026",
+    label: "Technical University of Munich",
+    summary: "B.Sc. Management & Technology - Specialization: Computer Engineering"
+  },
+  {
+    period: "2020-2022",
+    label: "Indian Institute of Technology Madras",
+    summary: "Integrated M.A. Interdisciplinary Studies - coursework completed before transfer to TUM"
+  }
+];
 ---
 
 <Layout title="Nandhu Raj R | Applied AI / LLM Systems Engineer">
@@ -65,7 +126,6 @@ const timeline = [
         pipelines, and product-grade AI tooling.
       </p>
       <div class="mt-6 flex flex-wrap gap-2">
-        <StatusBadge label="ONLINE" tone="green" />
         <StatusBadge label="AGENTIC AI" />
         <StatusBadge label="MODEL EVAL" tone="violet" />
         <StatusBadge label="EDGE AI" />
@@ -73,8 +133,8 @@ const timeline = [
         <StatusBadge label="HEALTHTECH" tone="green" />
       </div>
       <div class="mt-7 flex flex-wrap gap-2">
-        <CommandButton href="/projects" label="View Projects" />
-        <CommandButton href="/resume" label="Download Resume" />
+        <CommandButton href="/blogs" label="View Projects" />
+        <CommandButton href="#resume_status" label="Resume" />
         <CommandButton href="https://github.com/NandhuRajRK" label="GitHub" external />
         <CommandButton href="https://www.linkedin.com/in/nandhu-raj/" label="LinkedIn" external />
       </div>
@@ -103,9 +163,9 @@ const timeline = [
     <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {
         systemStatus.map((item) => (
-          <article class="console-panel p-4 transition duration-200 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(102,217,239,0.12)]">
-            <h3 class="font-mono text-xs text-accent">{item.title}</h3>
-            <p class="mt-2 text-xs leading-relaxed text-muted">{item.detail}</p>
+          <article class="console-panel p-4 transition duration-200 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(138,245,162,0.12)]">
+            <h3 class="font-mono text-sm text-accent">{item.title}</h3>
+            <p class="mt-2 text-sm text-muted">{item.detail}</p>
           </article>
         ))
       }
@@ -123,7 +183,7 @@ const timeline = [
       {
         researchExperiments.map((item) => (
           <article class="console-panel p-5">
-            <h3 class="text-base font-semibold">{item.title}</h3>
+            <h3 class="text-sm font-semibold">{item.title}</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
             <div class="mt-4 flex flex-wrap gap-2">
               {item.tags.map((tag) => <Tag label={tag} />)}
@@ -138,18 +198,13 @@ const timeline = [
     <LogTimeline items={timeline} />
   </ConsoleSection>
 
-  <ConsoleSection command="product_and_strategy_archive">
-    <div class="console-panel space-y-4 p-5 text-sm text-muted">
-      <p><span class="text-text">FEATRme - Associate Product Manager</span><br />Worked on product discovery, AI-LegalTech feature planning, customer interviews, prototyping, GDPR considerations, and funding-pitch preparation.</p>
-      <p><span class="text-text">SeniorConnect - Founder's Associate / GTM Strategy</span><br />Conducted B2B market research across SaaS, IT, and industrial sectors, supporting outreach, vertical analysis, and GTM strategy.</p>
-      <p><span class="text-text">WearCompare - Co-founder / Product</span><br />Built and validated an AI-powered clothing resale/reuse concept in collaboration with Circular Republic, conducting 50+ qualitative interviews and launch strategy work.</p>
-      <p><span class="text-text">PushQuantum - Corporate Sponsorship Coordinator</span><br />Managed sponsorship and partnership development, including work connected to a BMBF-funded quantum outreach initiative.</p>
-    </div>
+  <ConsoleSection command="product_and_strategy">
+    <LogTimeline items={productStrategyArchive} showPeriod={false} />
   </ConsoleSection>
 
   <ConsoleSection id="focus" command="technical_stack">
     <div class="console-panel p-5">
-      <div class="space-y-2 font-mono text-xs sm:text-sm">
+      <div class="space-y-2 font-mono text-sm">
         {
           stackGroups.map((item) => (
             <p>
@@ -163,18 +218,20 @@ const timeline = [
     </div>
   </ConsoleSection>
 
-  <ConsoleSection command="leadership_archive">
-    <div class="console-panel space-y-3 p-5 text-sm text-muted">
-      <p><span class="text-text">IIT Madras Leadership & Innovation Roles</span><br />Held student leadership roles across academic affairs, cultural affairs, student innovation, entrepreneurship, department representation, and campus media.</p>
-      <p><span class="text-text">Selected roles:</span><br />Academic Affairs Executive Committee · Centre for Innovation Coordinator · E-Cell Associate Manager · Department Council Member · Cultural Affairs Executive Council · Article 19 / campus media</p>
-      <p><span class="text-text">UN / Public Health Volunteering</span><br />Supported BRUNCH and WASH outreach initiatives targeting child nutrition and public-health awareness, contributing to digital outreach and campaign growth.</p>
-    </div>
+  <ConsoleSection command="leadership">
+    <LogTimeline items={leadershipArchive} showPeriod={false} />
   </ConsoleSection>
 
   <ConsoleSection command="education">
-    <div class="console-panel space-y-4 p-5 text-sm text-muted">
-      <p><span class="text-text">Technical University of Munich</span><br />B.Sc. Management & Technology - Specialization: Computer Engineering<br />2022-2026</p>
-      <p><span class="text-text">Indian Institute of Technology Madras</span><br />Integrated M.A. Interdisciplinary Studies - coursework completed before transfer to TUM<br />2020-2022</p>
+    <LogTimeline items={educationTimeline} />
+  </ConsoleSection>
+
+  <ConsoleSection id="resume_status" command="resume">
+    <div class="console-panel p-5">
+      <p class="font-mono text-sm text-accent">resume_status: unavailable</p>
+      <p class="mt-2 text-sm text-text/90">
+        Resume is currently not published here. Please connect via LinkedIn or GitHub for the latest version.
+      </p>
     </div>
   </ConsoleSection>
 

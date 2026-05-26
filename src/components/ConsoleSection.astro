@@ -5,11 +5,15 @@ type Props = {
 };
 
 const { id, command } = Astro.props;
+const phase = Array.from(command).reduce((acc, char) => acc + char.charCodeAt(0), 0) % 9;
+const delay = `${-(phase * 0.14).toFixed(2)}s`;
 ---
 
 <section id={id} class="py-10 sm:py-12">
   <div class="container-shell">
-    <h2 class="mb-5 font-mono text-sm text-accent">$ {command}</h2>
+    <h2 class="mb-5 font-mono text-sm text-accent">
+      $ {command}<span class="blink-cursor" style={`animation-delay:${delay}`}>_</span>
+    </h2>
     <slot />
   </div>
 </section>

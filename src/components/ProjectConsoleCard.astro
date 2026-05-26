@@ -6,9 +6,9 @@ import type { Project } from "@/data/projects";
 const { project } = Astro.props as { project: Project };
 ---
 
-<article class="console-panel p-5 transition duration-200 hover:border-accent/60 hover:shadow-[0_0_28px_rgba(102,217,239,0.12)]">
+<article class="console-panel p-5 transition duration-200 hover:border-accent/60 hover:shadow-[0_0_28px_rgba(138,245,162,0.12)]">
   <div class="mb-3 flex items-start justify-between gap-3">
-    <h3 class="text-base font-semibold leading-snug">{project.name}</h3>
+    <h3 class="text-sm font-semibold leading-snug">{project.name}</h3>
     <StatusBadge
       label={project.status}
       tone={project.status.includes("RESEARCH") ? "violet" : project.status.includes("BUILT") ? "green" : "cyan"}

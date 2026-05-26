@@ -1,0 +1,21 @@
+---
+import CommandButton from "@/components/CommandButton.astro";
+import ConsoleSection from "@/components/ConsoleSection.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Blogs | Nandhu Raj R">
+  <ConsoleSection command="blogs">
+    <div class="console-panel p-5 sm:p-7">
+      <p class="font-mono text-xs text-accent">status: building</p>
+      <h1 class="mt-3 text-2xl font-semibold sm:text-3xl">Technical Notes Coming Soon</h1>
+      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
+        This section will include implementation notes on LLM systems, model evaluation experiments, agentic workflows,
+        and applied AI engineering decisions.
+      </p>
+      <div class="mt-6">
+        <CommandButton href="/" label="Back to Home" />
+      </div>
+    </div>
+  </ConsoleSection>
+</Layout>

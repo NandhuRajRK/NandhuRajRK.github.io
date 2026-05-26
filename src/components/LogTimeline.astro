@@ -6,6 +6,7 @@ type LogItem = {
 };
 
 const { items } = Astro.props as { items: LogItem[] };
+const { showPeriod = true } = Astro.props as { items: LogItem[]; showPeriod?: boolean };
 ---
 
 <div class="console-panel p-5 sm:p-6">
@@ -13,8 +14,8 @@ const { items } = Astro.props as { items: LogItem[] };
     {
       items.map((item) => (
         <li class="border-l border-border pl-4">
-          <p class="font-mono text-xs text-accent">[{item.period}] {item.label}</p>
-          {item.summary && <p class="mt-1 text-sm text-muted">{item.summary}</p>}
+          <p class="font-mono text-sm text-accent">{showPeriod ? `[${item.period}] ` : ""}{item.label}</p>
+          {item.summary && <p class="mt-1 text-sm text-text/90">{item.summary}</p>}
         </li>
       ))
     }
